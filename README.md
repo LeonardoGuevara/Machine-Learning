@@ -62,14 +62,14 @@ La Figura 3. muestra el resultado de ejecutar el script "Confusion_Matrix.py" co
 El vector con los datos de velocidad está determinado por el bloque de detección de señales. Esto significa que durante el análisis de la conducción, el tamaño del vector de velocidad no se mantendrá constante. En consecuencia, el algoritmo para el análisis de velocidad debe ser independiente del tamaño del vector. 
 
 El algoritmo entrega como resultado una etiqueta que indica que sucedió con la velocidad durante la detección de la señal de tránsito, las etiquetas posibles son:
-* Aumenta: 
-* Disminuye
-* Detiene
-* Igual
+* Aumento de Velocidad
+* Disminuye la Velocidad
+* Se Detuvo
+* Se mantuvo Igual
 
 El esquema propuesto para el algoritmo de velocidad se muestra en la Figura 4. Una vez que se reciben los datos de velocidad, se aplica un algoritmo de clustering para caracterizar toda la señal, se decidió trabajar con algoritmos que reciban como conocimiento a priori el número de clusters. El algoritmo agrupará la señal en 3 clusters. Con los datos agrupados, se aplica una regresión lineal sobre cada grupo y se obtienen las pendientes de cada uno. Se ha entrenado una máquina de soporte vectorial multiclase (SVM) que recibe como vector de características los valores de las pendientes y determina a cual de las cuatro clases mencionadas pertenece.
 
-![Esquema Análisis de Velocidad](/Imagenes/SpeedA.PNG)
+![Esquema Análisis de Velocidad](/Imagenes/SpeedA.png)
 
 El SVM fue entrenado con valores de pendientes de señales adquiridas con un joystick. El dataset tuvo un tamaño de 150 señales de cada clase. El training set constituyó el 80% del dataset, mientras que el testing set el 20%.
 
@@ -77,7 +77,7 @@ Para la implementación de las etapas de clustering, regresión lineal y el SVM 
 
 En la Figura 5. se muestra el resultado de ejecutar el archivo "ConfussionMatrix.py" que muestra el desempeño del clasificador. 
 
-![Matriz de confusión: análisis de velocidad](/Imagenes/MatrizconfusionSpeedA.PNG)
+![Matriz de confusión: análisis de velocidad](/Imagenes/MatrizconfusionSpeedA.png)
 
 ## Análisis de Tramas de Imágenes
 
