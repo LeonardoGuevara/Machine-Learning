@@ -5,22 +5,6 @@ NOTA: A manera de ayuda, el siguiente enlace direcciona a un tutorial con un pro
 
 https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
 
-# Como utilizar el Código
-
-* Para que funcione el sistema se necesitan todas las carpetas y archivos que se generan por la descarga del API de detección. La carpeta "utils" contiene dos archivos importantes para nuestra aplicación. Estos archivos son "label_map_util" y "visualization_utils". El segundo archivo fue modificado para nuestra aplicación por lo que si se descarga la versión original del API no funcionará el sistema. La modificación se debe a que para la aplicación se requiere retornar variables de la detección que por default no son entregados por el API ya que éste solo visualiza la detección, y el sistema requiere manejar los datos de ubicación y clase.
-
-* La carpeta "inference_graph" es la carpeta que más espacio abarcará ya que contiene el modelo del clasificador de objetos entregado por el API de tensorflow.
-
-* El archivo "filename2.pkl" contiene el modelo del clasificador de velocidad.
-
-* Se necesita crear la carpeta "test_images" que contiene las imagenes con las que se probará el sistema. Dentro de ella existen dos carpetas, una para guardar las imagenes que servirán como GroundTruth para determinar la matriz de confusión de la detección y la otra para probar todo el sistema durante una trama de conducción. La carpeta con el GroundTruth debe contener un archivo .csv con las etiquetas y la carpeta de prueba debe contener un archivo .xls con la trama de velocidad almacenada durante la conducción. 
-* El script "Confusion_Matrix.py" sirve para determinar la matriz de confusión de la etapa de detección de señales.
-* El script "Confusion_Matriz2.py" sirve para determinar la matriz de confusión de la etapa de análisis de velocidad.
-* El script "Main.py" sirve para ejecutar el análisis de conducción. Este a su vez llama a varios otros scripts dentro de la carpeta "utils" y de este repositorio.
-
-* Para poder ejecutar el código, es necesario tener instalado tensorflow y antes de ejecutarlo se debe asegurar de activar un ambiente de tensorflow y que asi se active la GPU con el comando: `C:\> activate tensorflow1`
-Si se quiere ejecutar el código se debe considerar que el directorio por defecto con el que están configurados los programas es el siguiente: C:/> tensorflow1\models\research\object_detection/ 
-
 # Descripción del Sistema Propuesto
 
 Para cumplir con el objetivo de lograr determinar si un conductor se ha comportado de manera imprudente o no. Se ha decidido utilizar una cámara colocada sobre el panel frontal del vehículo mirando hacia la misma dirección del movimiento. De esta manera se busca poder observar lo mismo que el conductor y así poder detectar si el conductor al pasar por alguna señal de tránsito importante realizó la acción pertinente. La evaluación de la acción se basará en dos entradas, la primera es el tipo de señal detectada y la segunda es el cambio de velocidad durante la detección de la señal. A partir de estos dos datos de entrada, el sistema permite inferir si el comportamiento durante un tramo de conducción fue correcto o no y muestra en pantalla mensajes visuales con su resultado. 
